@@ -1,0 +1,95 @@
+* {
+    box-sizing: content-box;
+}
+
+body{
+    background-color: black;
+    overflow: hidden;
+    margin: 0px;
+}
+
+h3 {
+    color: rgb(1, 7, 1);
+    font-size: 40px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20%;
+    white-space: nowrap
+}
+
+a {
+    color: rgb(233, 198, 151);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40%;
+    border: 2px solid black;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:focus {
+    outline: none;
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.split{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+.split.left {
+    left: 0px;
+    background: url(https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&=750&q=80) no-repeat;
+    background-size: cover;
+}
+
+
+/* before : it is like a ghost element put above .split.left */
+.split.left::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(90, 90, 90, 0.5);
+}
+
+.split.right{
+    right: 0;
+    background: url(https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8eGJveHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60) no-repeat;
+    background-size: cover;
+}
+
+.split.right::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 10, 39, 0.7);
+}
+
+.hover-left .left{
+    width: 75%;
+}
+
+.hover-left .right {
+    width: 25%;
+}
+
+.hover-right .left{
+    width: 25%;
+}
+
+.hover-right .right {
+    width: 75%;
+}
+

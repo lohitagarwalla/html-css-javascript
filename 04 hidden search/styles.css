@@ -1,0 +1,49 @@
+* {
+    box-sizing: content-box;
+}
+
+body {
+    background-color: rgb(139, 58, 58);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    outline: 0px;
+    border: solid 1px red;
+    transition: display 0.5s ease;
+    padding: 10px;
+    width: 200px;
+    transition: width 0.5s linear;
+}
+
+#btn {
+    position: absolute;
+    padding: 0px;
+    margin: 0px;
+    background-color: transparent;
+    border: 0px;
+    font-size: 20px;
+    right: 10px;
+    opacity: 0.4;
+}
+
+
+.field.disabled {
+    width: 18px;
+    z-index: -21;
+}
+
+.field.disabled + #btn {
+    opacity: 1;
+    background-color: white;
+}

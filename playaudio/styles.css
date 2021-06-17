@@ -1,0 +1,31 @@
+*  {
+    box-sizing: content-box;
+}
+
+body {
+    background-color: #f6f7fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+#btn{
+    padding: 6px 10px;
+    margin: 6px 6px;
+    background-color: rgb(48, 48, 124);
+    color: white;
+    font-size: medium;
+    border-radius: 10px;
+}
+
+#btn:disabled {
+    background-color: grey;
+}
