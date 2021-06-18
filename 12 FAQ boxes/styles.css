@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    box-sizing: content-box;
+}
+
+body{
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 25px 40px;
+    border-radius: 10px;
+}
+
+.box {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    width: 350px;
+    letter-spacing: 0.7px;
+    transition: 0.5s ease;
+}
+
+.box.active {
+    background-color: rgba(1, 1, 43, 0.568);
+}
+
+.question {
+    position: relative;
+}
+
+.question h1 {
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.question button {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    top:-18px;
+    right: -25px;
+}
+
+.question button i {
+    font-size: 20px;
+    color: white;
+}
+
+.answer p {
+    font-size: 17px;
+}
+
+.box .open{
+    display: inline-block;
+}
+
+.box .close {
+    display: none;
+}
+
+.box.active .close {
+    display: inline-block;
+}
+
+.box.active .open{
+    display: none;
+}
+
+.box .answer {
+    display: none;
+}
+
+.box.active .answer {
+    display: inline-block;
+}
+
+.box.active .question h1 {
+    margin-bottom: 0px;
+}
