@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    /* box-sizing: content-box; */
+}
+
+body{
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container h1 {
+    margin: 0;
+}
+
+.glass2l {
+    position: relative;
+    /* background-color: blue; */
+    width: 200px;
+    height: 400px;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.glass1 {
+    background-color: rgb(255, 255, 255);
+    width: 200px;
+    height: 400px;
+    position: absolute;
+    top: -8px;
+    /* border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px; */
+    border: rgb(58, 58, 58) 4px solid;
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s linear;
+}
+
+.glass2{
+    background-color: rgb(180, 181, 182);
+    border: rgb(58, 58, 58) 4px solid;
+    width: 200px;
+    height: 000px;
+    position: absolute;
+    bottom: 0;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    transition: 0.5s linear;
+}
+
+.glass2l.isempty .glass1 {
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom: rgb(58, 58, 58) 4px solid;
+    height: 400px;
+}
+
+.glass2l.isempty .glass2 {
+    border: none;
+    color: transparent;
+    height: 000px;
+}
+
+.glass2l.isfull .glass1 {
+    color: transparent;
+}
+
+.glass2l.isfull .glass2 {
+    height: 400px;
+}
+
+.glass250ml {
+    height: 60px;
+    width: 30px;
+    border: rgb(58, 58, 58) 3px solid;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin: 10px;
+    padding: 0px;
+    font-size: 12px;
+    font-weight: 550;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.glass250ml.isfull {
+    background-color: rgb(180, 181, 182);
+}

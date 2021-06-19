@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --main-background-color: rgba(0, 0, 0);
+    --second-background-color: rgb(54, 54, 54);
+    --third-color: rgb(173, 173, 173);
+}
+
+body{
+    background-color: black;
+    color: var(--third-color);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content:flex-end;
+    padding: 5px 10px;
+}
+
+header .search {
+    border:2px solid var(--main-background-color);
+    background-color: var(--second-background-color);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+header .search:focus {
+    outline: 0;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.movie{
+    background-color: var(--second-background-color);
+    width: 300px;
+    min-width: 300px;
+    display: inline-block;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px var(--third-color);
+}
+
+.movie img{
+    width: 100%;
+}
+
+.movie .desc {
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.movie .desc h3 {
+    display: inline-block;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.movie .desc span {
+    background-color: var(--main-background-color);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.movie .overview {
+    background-color: rgba(173, 173, 173, 0.5);
+    color: var(--main-background-color);
+    position: absolute;
+    bottom: 0px;
+    padding: 10px;
+    transform: translateY(101%);
+    transition: transform 0.5s linear;
+    border-radius: 20px 20px 0 0 ;
+}
+
+.movie:hover .overview{
+    transform: translateY(0);
+}
