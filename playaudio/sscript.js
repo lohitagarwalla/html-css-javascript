@@ -4,7 +4,7 @@ var response = 0
 
 var audio = new Audio('song.mp3');
 
-btn.addEventListener('click', async () =>  {
+btn.addEventListener('click', async () => {
     pincode = document.getElementById('input').value
     btn.disabled = true
     call()
@@ -15,10 +15,10 @@ function callFunc(myurl) {
     console.log(url)
     const Http = new XMLHttpRequest();
     Http.open("GET", url);
-    
-    Http.onreadystatechange =   (e) => {
-        response =  Http.responseText
-        if(response) {
+
+    Http.onreadystatechange = (e) => {
+        response = Http.responseText
+        if (response) {
             const jsonobj = JSON.parse(response)
             checkandplay(jsonobj)
         }
@@ -32,12 +32,12 @@ function callingfunction() {
     callFunc(geturlbydist(44))
 }
 
-function call () {
+function call() {
     callingfunction()
     setInterval(callingfunction, 20000)  //for district
 }
 
-function checkandplay(obj)  {
+function checkandplay(obj) {
     const date = new Date()
     console.log(date)
     var emailText = ''
@@ -48,22 +48,26 @@ function checkandplay(obj)  {
         // console.log(center)
         const sessionLength = center.sessions.length
         for (var j = 0; j < sessionLength; j++) {
-            console.log(center.sessions[j].available_capacity, center.sessions[j].min_age_limit, center.name,center.sessions[j].available_capacity_dose1, center.sessions[j].available_capacity_dose2  )
+            console.log(center.sessions[j].available_capacity, center.sessions[j].min_age_limit, center.name, center.sessions[j].available_capacity_dose1, center.sessions[j].available_capacity_dose2, center.sessions[j].vaccine)
             // if (center.sessions[j].available_capacity === 0 && center.sessions[j].min_age_limit === 18) {
-            if (center.sessions[j].available_capacity > 3 || center.sessions[j].available_capacity_dose1 > 1 || center.sessions[j].available_capacity_dose2 > 1) {
-                if(i===0) {
-                    emailText += '\n'
+            if (center.sessions[j].vaccine === "covaxin") {
+                audio.play();
+                console.log(center)
+                if (center.sessions[j].available_capacity > 0 || center.sessions[j].available_capacity_dose1 > 0 || center.sessions[j].available_capacity_dose2 > 0) {
+                    if (i === 0) {
+                        emailText += '\n'
+                    }
+                    emailText += 'Center Name: ' + center.name
+                    emailText += ', available: ' + center.sessions[j].available_capacity
+                    emailText += ',  For min age:' + center.sessions[j].min_age_limit
+                    emailText += ', address:' + center.address + '.\n'
                 }
-                emailText += 'Center Name: ' + center.name 
-                emailText += ', available: ' + center.sessions[j].available_capacity 
-                emailText += ',  For min age:' + center.sessions[j].min_age_limit 
-                emailText += ', address:' + center.address +  '.\n'
             }
         }
     }
     emailText && console.log('email text: \n', emailText)
     emailText && audio.play();
-} 
+}
 
 
 function geturlbydist(distCode) {
@@ -74,7 +78,7 @@ function geturlbydist(distCode) {
     const date = new Date()
     const day = date.getDate()
     var month = date.getMonth() + 1
-    if(month <10) {
+    if (month < 10) {
         month = '0' + month
     }
     const url = link + day + '-' + month + '-2021'
@@ -83,11 +87,11 @@ function geturlbydist(distCode) {
 
 function geturlbypin(pinCode) {
     var link = createLinkByPin(pinCode)
-    
+
     const date = new Date()
     const day = date.getDate()
     var month = date.getMonth() + 1
-    if(month <10) {
+    if (month < 10) {
         month = '0' + month
     }
     const url = link + day + '-' + month + '-2021'
