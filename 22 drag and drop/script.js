@@ -15,24 +15,18 @@ var start = fill
 var x = 1
 
 function dragStart(e) {
-    console.log('dragstart')
     this.classList.add('hold')
     setTimeout(() => {
         this.className = 'invisible'
-    }, 0) 
-    x = 2
+    }, 1)
 }
 
 function dragEnd() {
-    console.log('dragend')
     this.classList.remove('hold')
     this.className = 'fill'
-    start.classList.remove('from')
-    x=2
 }
 
 function dragEnter() {
-    console.log('drag Enter')
     this.classList.add('hovered')
 }
 
@@ -42,7 +36,6 @@ function dragLeave() {
 
 function dragOver(e) {
     e.preventDefault()
-    console.log('drag Over')
 }
 
 function dragDrop(e) {
